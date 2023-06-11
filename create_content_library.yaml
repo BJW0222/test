@@ -1,4 +1,4 @@
-## https://docs.ansible.com/ansible/latest/collections/community/vmware/vmware_guest_module.html
+## https://docs.ansible.com/ansible/latest/collections/community/vmware/vmware_content_library_manager_module.html#ansible-collections-community-vmware-vmware-content-library-manager-module
 
 ---
 - hosts: localhost
@@ -7,12 +7,11 @@
   tasks: 
     - name: Create Local Content Library
       community.vmware.vmware_content_library_manager:
-        hostname: '{{ vcenter_hostname }}'
-        username: '{{ vcenter_username }}'
-        password: '{{ vcenter_password }}'
-        library_name: test-content-lib
-        library_description: 'Library with Datastore Backing'
+        hostname: '{{ vcenter_hostname }}'  # 200.200.200.251
+        username: '{{ vcenter_username }}'  # S00@vclass.local
+        password: '{{ vcenter_password }}'  # VMware1!
+        library_name: "{{ student_ID + '-Contents' }}"
         library_type: local
-        datastore_name: datastore
+        datastore_name: "iSCSI-0"
         state: present
       delegate_to: localhost
