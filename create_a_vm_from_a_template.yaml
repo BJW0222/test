@@ -11,6 +11,7 @@
         username: "{{ vcenter_username }}"  # S00@vclass.local
         password: "{{ vcenter_password }}"  # VMware1!
         datacenter: "{{ datacenter_name }}"
+        datastore: "{{ datastore_name }}"
         folder: '{{ folder_prefix + student_ID }}'
         template: "{{ student_ID + '-Win2022-Template'}}"
         name: "{{ student_ID + '-DC' }}"
@@ -22,6 +23,7 @@
           productid: KH
           password: VMware1!
           timezone: Seoul
+          network['type'] = 'static'
           joinworkgroup:
           runonce:
           - powershell.exe -ExecutionPolicy Unrestricted -File C:\Windows\Temp\ConfigureRemotingForAnsible.ps1 -ForceNewSSLCert -EnableCredSSP
