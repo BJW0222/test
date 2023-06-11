@@ -1,0 +1,18 @@
+## https://docs.ansible.com/ansible/latest/collections/community/vmware/vmware_guest_module.html
+
+---
+- hosts: localhost
+  vars_files: ./vars.yml
+
+  tasks: 
+    - name: Create Local Content Library
+      community.vmware.vmware_content_library_manager:
+        hostname: '{{ vcenter_hostname }}'
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        library_name: test-content-lib
+        library_description: 'Library with Datastore Backing'
+        library_type: local
+        datastore_name: datastore
+        state: present
+      delegate_to: localhost
