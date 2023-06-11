@@ -1,4 +1,5 @@
 ## https://docs.ansible.com/ansible/latest/collections/community/vmware/vmware_guest_module.html#parameter-customization/joindomain
+## https://docs.ansible.com/ansible/latest/collections/community/vmware/docsite/vmware_scenarios/scenario_clone_template.html
 
 ---
 - hosts: localhost
