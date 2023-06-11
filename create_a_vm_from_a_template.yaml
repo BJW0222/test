@@ -1,0 +1,28 @@
+## https://docs.ansible.com/ansible/latest/collections/community/vmware/vmware_guest_module.html
+
+---
+- hosts: localhost
+  vars_files: ./vars.yaml
+
+  tasks: 
+    - name: Create a virtual machine from a template
+      community.vmware.vmware_guest:
+        hostname: "{{ vcenter_hostname }}"  # 200.200.200.251
+        username: "{{ vcenter_username }}"  # S00@vclass.local
+        password: "{{ vcenter_password }}"  # VMware1!
+        datacenter: "{{ datacenter_name }}"
+        folder: '{{ folder_prefix + student_ID }}'
+        template: "{{ student_ID + '-Win2022-Template'}}"
+        name: "{{ student_ID + '-DC' }}"
+        state: poweredon
+        esxi_hostname: "{{ esxi_hostname }}"  # 200.200.200.250
+        customization:
+          autologon: true
+          fullname: "{{ student_ID }}"
+          productid: KH
+          password: VMware1!
+          timezone: Seoul
+          joinworkgroup:
+          runonce:
+          - powershell.exe -ExecutionPolicy Unrestricted -File C:\Windows\Temp\ConfigureRemotingForAnsible.ps1 -ForceNewSSLCert -EnableCredSSP
+      delegate_to: localhost
