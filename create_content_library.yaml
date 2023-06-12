@@ -13,6 +13,6 @@
         library_name: "{{ student_ID + '-Contents' }}"
         library_type: local
         datastore_name: "iSCSI-0"
-        state: present
+        state: present    ##
       delegate_to: localhost
 

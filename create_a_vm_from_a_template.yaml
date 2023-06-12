@@ -27,7 +27,7 @@
           device_type: vmxnet3
         customization:
           autologon: true
-          hostname: 'DC'
+          hostname: 'DC'    ##
           password: 'VMware1!'
           timezone: 230
           joinworkgroup: 'WORKGROUP'
