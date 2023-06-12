@@ -27,6 +27,7 @@
           gateway: 20.20.20.1
           device_type: vmxnet3
         customization:
+          hostname: "{{ student_ID + '-DC' }}"
           dns_servers:
             - 200.200.200.245
           password: "VMware1!"
