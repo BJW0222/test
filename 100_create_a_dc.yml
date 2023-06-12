@@ -10,7 +10,7 @@
     - name: Clone a virtual machine from Windows template and customize
       community.vmware.vmware_guest:
         hostname: "{{ vcenter_hostname }}"  # 200.200.200.251
-        username: "{{ vcenter_username }}"  # S00@vclass.local
+        username: "{{ vcenter_username }}"  # S09@vclass.local
         password: "{{ vcenter_password }}"  # VMware1!
         validate_certs: 'false'
         datacenter: "{{ datacenter_name }}"
@@ -27,9 +27,9 @@
           gateway: 20.20.20.1
           device_type: vmxnet3
         customization:
-          autologon: true
-          autologoncount: 5
-          password: 'VMware1!'
+          dns_servers:
+            - 200.200.200.245
+          hostname: "DC"
+          password: "VMware1!"
           timezone: 230
           joinworkgroup: 'WORKGROUP'
-      delegate_to: localhost
