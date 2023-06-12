@@ -7,9 +7,9 @@
   tasks: 
     - name: Create k8s node VM
       community.vmware.vmware_guest:
-        hostname: "{{ vcenter_hostname }}"  # 20.20.20.20
-        username: "{{ vcenter_username }}"  # administrator@vsphere.local
-        password: "{{ vcenter_password }}"  # VMware1!
+        hostname: "{{ vsphere_hostname }}"  # 20.20.20.20
+        username: "{{ vsphere_username }}"  # administrator@vsphere.local
+        password: "{{ vsphere_password }}"  # VMware1!
         validate_certs: 'false'
         datacenter: '{{datacenter_name}}'   # KH
         name: "k8s-master"
