@@ -25,7 +25,7 @@ private_net: "{{ student_ID + '-Trunk' }}"
 
 datastore_name: "Local-01"
 
-vsphere_hostname: "PHX-vcsa.vclass.phoenix"
+vsphere_hostname: "20.20.20.20"
 vsphere_username: "administrator@vsphere.phoenix"
 vsphere_password: "VMware1!"
 
