@@ -25,6 +25,9 @@ private_net: "{{ student_ID + '-Trunk' }}"
 
 datastore_name: "Local-01"
 
+vsphere_hostname: "PHX-vcsa.vclass.phoenix"
+vsphere_username: "administrator@vsphere.phoenix"
+vsphere_password: "VMware1!"
 
 dc_template_name: "Temp-WinSvr2022-ESXi-05"
 dc_snapshot_src_name: "KH4"
