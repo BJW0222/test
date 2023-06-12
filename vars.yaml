@@ -1,6 +1,6 @@
 ansible_python_interpreter: /bin/python3
 
-student_ID: "S09"
+student_ID: "PHX"
 
 vcenter_hostname: "200.200.200.251"
 vcenter_username: "S09@vclass.kh"
