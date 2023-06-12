@@ -34,3 +34,4 @@
           #iso_path: '{{ "[" + datastore_name + "]\ISO\TrueNAS-13.0-U4.iso" }}'
       delegate_to: localhost
       register: deploy_vm
+
