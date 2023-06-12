@@ -1,12 +1,13 @@
 ## https://docs.ansible.com/ansible/latest/collections/community/vmware/vmware_guest_module.html#parameter-customization/joindomain
 ## https://docs.ansible.com/ansible/latest/collections/community/vmware/docsite/vmware_scenarios/scenario_clone_template.html
+## timezone index values - https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)
 
 ---
 - hosts: localhost
   vars_files: ./vars.yaml
 
   tasks: 
-    - name: Create a virtual machine from a template
+    - name: Clone a virtual machine from Windows template and customize
       community.vmware.vmware_guest:
         hostname: "{{ vcenter_hostname }}"  # 200.200.200.251
         username: "{{ vcenter_username }}"  # S00@vclass.local
@@ -17,15 +18,17 @@
         template: "{{ student_ID + '-Win2022-Template'}}"
         name: "{{ student_ID + '-DC' }}"
         state: poweredon
-        esxi_hostname: "{{ esxi_hostname }}"  # 200.200.200.250
+        esxi_hostname: "{{ esxi_hostname }}"  # 200.200.200.246
+        networks:
+        - name: "{{ student_ID + '-Mgmt' }}"  # PHX-Mgmt 포트 그룹에 연결
+          ip: 20.20.20.2
+          netmask: 255.255.255.0
+          gateway: 20.20.20.1
+          device_type: vmxnet3
         customization:
           autologon: true
-          fullname: "{{ student_ID }}"
-          productid: KH
-          password: VMware1!
-          timezone: Seoul
-          network['type'] = 'static'
-          joinworkgroup:
-          runonce:
-          - powershell.exe -ExecutionPolicy Unrestricted -File C:\Windows\Temp\ConfigureRemotingForAnsible.ps1 -ForceNewSSLCert -EnableCredSSP
+          hostname: 'DC'
+          password: 'VMware1!'
+          timezone: 230
+          joinworkgroup: 'WORKGROUP'
       delegate_to: localhost
