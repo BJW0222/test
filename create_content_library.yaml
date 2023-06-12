@@ -7,9 +7,9 @@
   tasks: 
     - name: Create Local Content Library
       community.vmware.vmware_content_library_manager:
-        hostname: '{{ vcenter_hostname }}'  # 20.20.20.20
-        username: '{{ vcenter_username }}'  # administrator@vsphere.local
-        password: '{{ vcenter_password }}'  # VMware1!
+        hostname: '{{ vsphere_hostname }}'  # 20.20.20.20
+        username: '{{ vsphere_username }}'  # administrator@vsphere.local
+        password: '{{ vsphere_password }}'  # VMware1!
         library_name: "{{ student_ID + '-Contents' }}"
         library_type: local
         datastore_name: "iSCSI-0"
