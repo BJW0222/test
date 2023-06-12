@@ -4,7 +4,7 @@
 
 ---
 - hosts: localhost
-  vars_files: ./vars.yaml
+  vars_files: ./vars.yml
 
   tasks: 
     - name: Clone a virtual machine from Windows template and customize
@@ -12,6 +12,7 @@
         hostname: "{{ vcenter_hostname }}"  # 200.200.200.251
         username: "{{ vcenter_username }}"  # S00@vclass.local
         password: "{{ vcenter_password }}"  # VMware1!
+        validate_certs: 'false'
         datacenter: "{{ datacenter_name }}"
         datastore: "{{ datastore_name }}"
         folder: '{{ folder_prefix + student_ID }}'
@@ -21,15 +22,15 @@
         esxi_hostname: "{{ esxi_hostname }}"  # 200.200.200.246
         networks:
         - name: "{{ student_ID + '-Mgmt' }}"  # PHX-Mgmt 포트 그룹에 연결
-          ip: 20.20.20.3
+          ip: 20.20.20.22
           netmask: 255.255.255.0
           gateway: 20.20.20.1
           device_type: vmxnet3
         customization:
           autologon: true
+          autologoncount: 5
           hostname: 'DC'
           password: 'VMware1!'
           timezone: 230
           joinworkgroup: 'WORKGROUP'
       delegate_to: localhost
-
