@@ -29,7 +29,6 @@
         customization:
           autologon: true
           autologoncount: 5
-          hostname: 'DC'
           password: 'VMware1!'
           timezone: 230
           joinworkgroup: 'WORKGROUP'
