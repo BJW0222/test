@@ -10,9 +10,9 @@
         hostname: '{{ vsphere_hostname }}'  # 20.20.20.20
         username: '{{ vsphere_username }}'  # administrator@vsphere.local
         password: '{{ vsphere_password }}'  # VMware1!
-        library_name: "{{ student_ID + '-Contents' }}"
+        validate_certs: 'false'
+        library_name: "{{ student_ID + '-Contents2' }}"  # PHX-Contents
         library_type: local
         datastore_name: "iSCSI-0"
         state: present
       delegate_to: localhost
-
