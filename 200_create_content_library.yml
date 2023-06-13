@@ -11,7 +11,7 @@
         username: '{{ vsphere_username }}'  # administrator@vsphere.local
         password: '{{ vsphere_password }}'  # VMware1!
         validate_certs: 'false'
-        library_name: "{{ student_ID + '-Contents2' }}"  # PHX-Contents
+        library_name: "{{ student_ID + '-Contents' }}"  # PHX-Contents
         library_type: local
         datastore_name: "iSCSI-0"
         state: present
