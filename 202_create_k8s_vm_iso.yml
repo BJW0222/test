@@ -13,7 +13,7 @@
         validate_certs: 'false'
         folder: "/"
         datacenter: "{{ vsphere_datacenter }}"
-        name: "k8s-master-01"
+        name: "k8s-master"
         state: poweredon
         guest_id: ubuntu64Guest
         esxi_hostname: "phx-esxi-03.vclass.local"   #"phx-esxi-01.vclass.local"
