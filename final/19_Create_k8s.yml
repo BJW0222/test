@@ -40,6 +40,6 @@
           unit_number: 0
           state: present
           type: iso
-          iso_path: "[iSCSI-OviOS] contentlib-29abf0d9-ffa3-40f6-8650-90c0dd7b758d/522a325b-7fbf-4209-b616-1b53507761fd" 
+          iso_path: "[iSCSI-OviOS] contentlib-29abf0d9-ffa3-40f6-8650-90c0dd7b758d/522a325b-7fbf-4209-b616-1b53507761fd/ubuntu-20.04.4-desktop-amd64_5b2dbf9c-4dee-4649-828a-a16b19632fa0.iso" 
       delegate_to: localhost
       register: deploy
