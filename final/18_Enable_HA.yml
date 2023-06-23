@@ -18,8 +18,8 @@
     username: '{{ my_vcenter_username }}'
     password: '{{ my_vcenter_password }}'
     validate_certs: no
-    datacenter: TEST
-    cluster_name: S11
+    datacenter: PHX
+    cluster_name: PHX-Cluster
     enable: true
     apd_response: restartConservative
     pdl_response: restartAggressive
