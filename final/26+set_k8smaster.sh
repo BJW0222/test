@@ -29,6 +29,10 @@ echo $(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin 
 apt install -y expect
 
 expect << EOF
+spawn scp -o "StrictHostKeyChecking=no" /home/phoenix/token/token.txt phoenix@20.20.50.10:/home/phoenix/token.txt
+expect "password:" {send "VMware1!\r"}
+expect eof
+
 spawn scp -o "StrictHostKeyChecking=no" /home/phoenix/token/token.txt phoenix@20.20.50.20:/home/phoenix/token.txt
 expect "password:" {send "VMware1!\r"}
 expect eof
